@@ -8,7 +8,6 @@ const mapStateToProps =  (store) => {
 
 const mapDispatchToProps = (dispatch) => ({
   handleSubmit: (text, id) => {
-    debugger;
     dispatch(addTodo(text,id))}
 })
 
