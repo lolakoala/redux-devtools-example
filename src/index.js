@@ -5,12 +5,24 @@ import './index.css';
 import { Provider } from 'react-redux'
 import { createStore } from 'redux'
 import rootReducer from './reducers'
-const devTools = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-const store = createStore(rootReducer, devTools) // this is the state inside of my store :D
+import DevTools from './containers/DevTools.js';
+
+
+const initialState = {};
+
+const store = createStore(
+	rootReducer,
+	initialState,
+	DevTools.instrument()
+);
+
 
 ReactDOM.render(
 <Provider store={store}>
-  <App />
+  <div>
+    <App />
+    <DevTools />
+  </div>
 </Provider>,
   document.getElementById('root')
 );

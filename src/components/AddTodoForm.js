@@ -14,13 +14,16 @@ export default class AddTodoForm extends Component {
     return (
       <section>
         <form onSubmit= { (e) => {
-          e.preventDefault()
-          handleSubmit(this.state.text, todos.length)
+          e.preventDefault();
+          console.log('component event')
+          handleSubmit(this.state.text, todos.length);
         }
         }>
           <input type='text'
                  value={this.state.text}
-                 onChange={(e) => this.setState({text: e.target.value})}
+                 onChange={(e) => {
+                   console.log('setting component state')
+                   this.setState({text: e.target.value})}}
           />
           <input type='submit'/>
         </form>
